@@ -1,17 +1,7 @@
-Feature: The Internet Guinea Pig Website
-
-  Scenario Outline: As a user, I can log into the secure area
-
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
-
-    Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+Feature: El usuario desea realizar las diferentes operaciones de facebook
 
   @debug
-  Scenario: el usuario se logea
-    Given El usuario ingresa a la pagina
-    When El usuario inicia con los datos
+  Scenario:el usuario crea una cuenta en facebook
+    Given el usuario ingresa a la pagina
+    When el usuario se registra con los datos
+   
