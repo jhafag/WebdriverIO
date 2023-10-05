@@ -7,10 +7,10 @@ import { browser } from '@wdio/globals'
 export default class Page {
    
     /**
-    * Opens a sub page of the page
+    * Opens a sub page of the pages
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     public open () {
-        browser.url(`https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr`);
+        browser.url(`https://www.amazon.com/-/es/`);
     }
 }
