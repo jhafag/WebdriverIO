@@ -1,4 +1,14 @@
 {
+  "name": "wdio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.ts"
+  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@wdio/cli": "^8.16.4",
     "@wdio/cucumber-framework": "^8.16.4",
@@ -8,9 +18,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "wdio": "^6.0.1",
     "webdriverio": "^8.16.4"
-  },
-  "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts"
   }
 }

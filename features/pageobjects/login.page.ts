@@ -1,26 +1,62 @@
-import { $ } from '@wdio/globals'
+import { $, browser } from '@wdio/globals';
 import Page from './page';
 
-export class LoginPage extends Page {
+/**
+ * sub page containing specific selectors and methods for a specific page
+ */
+class LoginPage extends Page {
+    /**
+     * define selectors using getter methods
+     */
+    public get inputUsername () {
+        return $('#username');
+    }
 
-    GENDER_RADIO_BUTTON = (fileName: string) => `(//input[@type='radio'])[${fileName}]`
+    public get inputPassword () {
+        return $('#pass');
+    }
 
-    public get genderButton(){return $("//*[contains(text(),'Hombre')]")}
-    public get inputContraseña(){ return $("#pass")}
-    public get inputEmail(){return $("#email")}
-    public get buttonLogin(){return $("(//*[contains (text(), 'Iniciar sesión')])[1]")}
-    public get createAccountButton(){return $("//a[@data-testid='open-registration-form-button']")}
-    public get firstName(){return $("//input[@name='firstname']")}
-    public get lastName(){return $("//input[@name='lastname']")}
-    public get contactInformation(){return $("//input[@name='reg_email__']")}
-    public get newPassword(){return $("#password_step_input")}
-    public get daySelector(){return $("#day")}
-    public get monthSelector(){return $("#month")}
-    public get yearSelector(){return $("#year")}
-    public get registrarte(){return $("(//button[contains (text(), 'Registrarte')])[1]")}
+    public get btnSubmit () {
+        return $('button[type="submit"]');
+    }
+
+    public get inputEmail () {
+        return $('#email');
+    }
+
+    public get btninicio () {
+        return $('//*[@name="login"]');
+    }
+
     
-    public open() {
+
+    
+
+    /**
+     * a method to encapsule automation code to interact with the page
+     * e.g. to login using username and password
+     */
+    public async login (username: string, password: string) {
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+    }
+
+    public async loginFacebook (email: string, password: string) {
+        await browser.pause(2000);
+        await this.inputEmail.setValue(email);
+        await browser.pause(2000);
+        await this.inputPassword.setValue(password);
+        await browser.pause(2000);
+        await this.btninicio.click();
+    }
+
+    /**
+     * overwrite specific options to adapt it to page object
+     */
+    public open () {
         return super.open();
     }
 }
+
 export default new LoginPage();
