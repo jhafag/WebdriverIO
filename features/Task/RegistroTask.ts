@@ -2,7 +2,6 @@ import RegisterPage
 
 
 
-
 export class RegistroTask extends RegisterPage{
 
     public async llenarDatos(nombre: string, apellido: string, correo: string, correoconf: string, contra: string) {

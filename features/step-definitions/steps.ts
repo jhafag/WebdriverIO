@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import { expect, $ } from '@wdio/globals'
+import { expect, $, browser } from '@wdio/globals'
 
 import LoginPage from '../pageobjects/login.page';
 
@@ -7,34 +7,18 @@ import LoginPage from '../pageobjects/login.page';
 import registerPage from '../pageobjects/register.page';
 
 const pages = {
-    login: LoginPage
+    login: LoginPage,
+    register: registerPage
 }
 
-Given(/^I am on the (\w+) page$/, async (page) => {
+Given(/^I am on the create acount page$/, async () => {
     await LoginPage.open()
-});
-Given(/^El usuario ingresa a la pagina$/, async () => {
-    await LoginPage.open()
-});
-
-When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-    await LoginPage.login(username, password)
+    //await page.hover(registerPage.singIn())
+    await registerPage.starHere.click();
+    
 });
 
-When(/^El usuario inicia con lo datos$/, async () => {
-    await LoginPage.loginFacebook("prueba@gmail.com", "prueba1234");
+When(/^I register with (.*), (.*), (.*), (.*)$/, async (username, useremail, password, passwordCheck) => {
+   await registerPage.createAcount(username,useremail,password,passwordCheck);
+   await browser.pause(900000)
 });
-
-When(/^El usuario registra los datos (.*), (.*), (.*), (.*), (.*)$/, async (nombre,apellido,correo,correoconf,contra) => {
-    await RegistroTask.llenarDatos(nombre,apellido,correo,correoconf,contra);
-    await registerPage.registrarse();
-});
-
-Then(/^El usuario ve el mensaje de error (.*)$/, async (message) => {
-    await expect(registerPage.textMsmFail).toBeExisting();
-    await expect(registerPage.textMsmFail).toHaveTextContaining(message);
-});
-
-
-
-

@@ -3,50 +3,44 @@ import Page from './page';
 
 class RegisterPage extends Page {
 
-    public get btnregistro() {
-        return $('//*[@data-testid="open-registration-form-button"]');
-    }
-
-    public get inputNombre() {
-        return $('//*[@name="firstname"]');
-    }
-
-    public get inputApellido() {
-        return $('//*[@name="lastname"]');
-    }
-    public get inputCorreo() {
-        return $('//*[@name="reg_email__"]');
-    }
-    public get inputCorreoConfir() {
-        return $('//*[@name="reg_email_confirmation__"]');
-    }
-    public get inputContra() {
-        return $('//*[@name="reg_passwd__"]');
-    }
-
-    public get inputSex() {
-        return $('(//*[@name="sex"])[2]');
-    }
-
-    public get inputRegistro() {
-        return $('//*[@name="websubmit"]');
-    }
-
-    public get inputYear() {
-        return $('//*[@id="year"]');
-    }
-    public get inputMonth() {
-        return $('//*[@id="month"]');
-    }
-    public get inputDay() {
-        return $('//*[@id="day"]');
-    }
-
-    public get textMsmFail() {
-        return $("//div[contains(text(),'direcci')]");
-    }
-
+    public get singIn(){
+        return $('#nav-link-accountList-nav-line-1');
+        }
     
+    public get starHere(){
+        return $('//*[@id="nav-signin-tooltip"]/div/a');
+    }
 
+    public get inputUsername () {
+        return $('#ap_customer_name');
+    }
+
+    public get inputEmail () {
+        return $('#ap_email');
+    }
+
+    public get inputPassword () {
+        return $("//input[@id='ap_password']");
+    }
+    public get inputPasswordCheck () {
+        return $("//input[@id='ap_password_check']");
+    }
+
+    public get btnSubmit () {
+        return $("//input[@id='continue']");
+    }
+
+    public get btninicio () {
+        return $('//*[@name="login"]');
+    }
+    public async createAcount (name: string, email: string, password: string, passwordCheck: string) {
+        await browser.pause(2000);
+        await this.inputUsername.setValue(name);
+        await this.inputEmail.setValue(email);
+        await this.inputPassword.setValue(password);
+        await this.inputPasswordCheck.setValue(passwordCheck);
+        await browser.pause(2000);
+        await this.btnSubmit.click();
+    }
 }
 export default new RegisterPage();

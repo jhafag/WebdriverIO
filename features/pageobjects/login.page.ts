@@ -8,22 +8,35 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
+
+    public get singIn(){
+        return $('#nav-link-accountList-nav-line-1');
+        }
+    
+    public get starHere(){
+        return $('//div[@id="nav-flyout-ya-signin"]/div/a');
+    }
+
     public get inputUsername () {
-        return $('#username');
-    }
-
-    public get inputPassword () {
-        return $('#pass');
-    }
-
-    public get btnSubmit () {
-        return $('button[type="submit"]');
+        return $('#ap_customer_name');
     }
 
     public get inputEmail () {
-        return $('#email');
+        return $('#ap_email');
     }
 
+    public get inputPassword () {
+        return $("//input[@id='ap_password']");
+    }
+    public get inputPasswordCheck () {
+        return $("//input[@id='ap_password_check']");
+    }
+
+    public get btnSubmit () {
+        return $("//input[@id='continue']");
+    }
+
+   
     public get btninicio () {
         return $('//*[@name="login"]');
     }
@@ -36,6 +49,9 @@ class LoginPage extends Page {
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
+
+  
+
     public async login (username: string, password: string) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
