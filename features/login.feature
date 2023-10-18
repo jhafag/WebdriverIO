@@ -11,22 +11,14 @@ Feature: the user buy a new product in Amazon Website
     Examples:
       | username | useremail|password| passwordCheck|message|
       | tomsmith | miboxa5375@klanze.com| 12345Jose  |12345Jose||
-      
 
-@debug
-  Scenario: el usuario inicia sesion en facebook
 
-    Given El usuario ingresa a la pagina
-    When El usuario inicia con lo datos
+@loginPage
+  Scenario: As a user, I can login 
 
-@register
-  Scenario Outline: el usuario crea una cuenta en facebook
+    Given I am on the login page
+    When I login with <useremail>, <password>
+    Then I should see a message confirmation 
 
-    Given El usuario ingresa a la pagina
-    When El usuario registra los datos <nombre>, <apellido>, <correo>, <correoconf>, <contra>
-    Then El usuario ve el mensaje de error <mensaje>
-
-    Examples:
-      | nombre | apellido| correo                    |correoconf                 |contra|mensaje                                                    |
-      | Kevin  | bello!  | elDueñoDeBello@vacunas.com|elDueñoDeBellos@vacunas.com|liga  |Tus direcciones de correo no coinciden. Inténtalo de nuevo.|
-      | foobar | barfoo  | 123345@cero.com           |                           |1234  |Vuelve a escribir tu dirección de correo electrónico.      |
+       | useremail            |password    |
+       | miboxa5375@klanze.com| 12345Jose  |

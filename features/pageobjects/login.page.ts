@@ -9,17 +9,9 @@ class LoginPage extends Page {
      * define selectors using getter methods
      */
 
-    public get singIn(){
-        return $('#nav-link-accountList-nav-line-1');
+    public get identify(){
+        return $("//a[@id='nav-link-accountList']");
         }
-    
-    public get starHere(){
-        return $('//div[@id="nav-flyout-ya-signin"]/div/a');
-    }
-
-    public get inputUsername () {
-        return $('#ap_customer_name');
-    }
 
     public get inputEmail () {
         return $('#ap_email');
@@ -28,23 +20,13 @@ class LoginPage extends Page {
     public get inputPassword () {
         return $("//input[@id='ap_password']");
     }
-    public get inputPasswordCheck () {
-        return $("//input[@id='ap_password_check']");
+    public get btnContinue () {
+        return $('//span[@id="continue"]');
     }
 
-    public get btnSubmit () {
-        return $("//input[@id='continue']");
-    }
-
-   
-    public get btninicio () {
-        return $('//*[@name="login"]');
-    }
-
-    
-
-    
-
+    public get btnSingIn(){
+        return $('#signInSubmit');
+        }
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -52,19 +34,12 @@ class LoginPage extends Page {
 
   
 
-    public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
-
-    public async loginFacebook (email: string, password: string) {
-        await browser.pause(2000);
+    public async login (email: string, password: string) {
         await this.inputEmail.setValue(email);
+        await this.btnContinue.click();
         await browser.pause(2000);
         await this.inputPassword.setValue(password);
-        await browser.pause(2000);
-        await this.btninicio.click();
+        await this.btnSingIn.click();
     }
 
     /**
@@ -76,3 +51,4 @@ class LoginPage extends Page {
 }
 
 export default new LoginPage();
+

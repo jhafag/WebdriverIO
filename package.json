@@ -1,7 +1,7 @@
 {
   "name": "wdio",
   "version": "1.0.0",
-  "description": "",
+  "description": "prueba de los cambios que voy a subir",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,14 +11,14 @@
   "license": "ISC",
   "devDependencies": {
     "@wdio/cli": "^8.16.4",
-    "@wdio/cucumber-framework": "^8.16.4",
-    "@wdio/local-runner": "^8.16.4",
-    "@wdio/spec-reporter": "^8.16.3",
+    "@wdio/cucumber-framework": "^8.19.0",
+    "@wdio/local-runner": "^8.19.0",
+    "@wdio/spec-reporter": "^8.19.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "wdio": "^6.0.1",
-    "webdriverio": "^8.16.4"
+    "webdriverio": "^8.19.0"
   }
 }

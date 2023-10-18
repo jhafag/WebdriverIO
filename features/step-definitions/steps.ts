@@ -22,3 +22,16 @@ When(/^I register with (.*), (.*), (.*), (.*)$/, async (username, useremail, pas
    await registerPage.createAcount(username,useremail,password,passwordCheck);
    await browser.pause(900000)
 });
+
+
+Given(/^I am on the login page$/, async () => {
+    await LoginPage.open();
+    //await browser.pause(19000);
+    await LoginPage.identify.click();
+    
+});
+
+When(/^I login with (.*), (.*)$/, async (useremail, password) => {
+    await LoginPage.login("miboxa5375@klanze.com", "12345Jose");
+    await browser.pause(900000);
+ });
