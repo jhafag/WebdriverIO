@@ -14,11 +14,13 @@ Feature: the user buy a new product in Amazon Website
 
 
 @loginPage
-  Scenario: As a user, I can login 
+  Scenario Outline: As a user, I can login 
 
     Given I am on the login page
     When I login with <useremail>, <password>
-    Then I should see a message confirmation 
-
-       | useremail            |password    |
-       | miboxa5375@klanze.com| 12345Jose  |
+    Then I should see a message <message>
+    
+    Examples:
+       | useremail            |password    |message|
+       | miboxa5375@klanze.com| 12345Jose  |Hola, tomsmith|
+       | miboxa5375@klanze.com| 12345Jose  |Hola tomsmith|

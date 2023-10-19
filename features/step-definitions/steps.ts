@@ -32,6 +32,12 @@ Given(/^I am on the login page$/, async () => {
 });
 
 When(/^I login with (.*), (.*)$/, async (useremail, password) => {
-    await LoginPage.login("miboxa5375@klanze.com", "12345Jose");
-    await browser.pause(900000);
+    await LoginPage.login(useremail, password);
+    await browser.pause(2000);
+ });
+
+ Then(/^I should see a message (.*)$/, async (message) => {
+    await expect(LoginPage.message).toHaveText(message);
+    await browser.pause(2000);
+    await browser.closed();
  });
