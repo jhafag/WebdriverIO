@@ -39,5 +39,5 @@ When(/^I login with (.*), (.*)$/, async (useremail, password) => {
  Then(/^I should see a message (.*)$/, async (message) => {
     await expect(LoginPage.message).toHaveText(message);
     await browser.pause(2000);
-    await browser.closed();
+    await window.close();
  });
