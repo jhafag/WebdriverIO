@@ -11,17 +11,25 @@ class comparePricePage extends Page {
     }
 
     public get btnBuyProductOne(){
-        return $('(//span[contains(text(),"Agregar al carrito")])[1]')
+        return $('(//input[@name="submit.addToCart"])[1]')
     }
     public get btnBuyProductTwo(){
-        return $('(//span[contains(text(),"Agregar al carrito")])[2]')
+        return $('(//input[@name="submit.addToCart"])[2]')
     }
 
     public get btnGoToCart(){
         return $('//*[@id="nav-cart-text-container"]/span[2]')
     }
+
+    public get txtGetPriceOne(){
+        return $('(//span[@class="_YnV5L_singlePriceToPay_1QbWS"])[1]')
+    }
+
+    public get txtGetPriceTwo(){
+        return $('(//span[@class="_YnV5L_singlePriceToPay_1QbWS"])[2]')
+    }
     public async addShoppingCart () {
-        await this.btnBuyAgain.click();
+        //await this.btnBuyAgain.click();
         await this.btnBuyProductTwo.click();
         await this.btnBuyProductOne.click();
         await this.btnGoToCart.click();
