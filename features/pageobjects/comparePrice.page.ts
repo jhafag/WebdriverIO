@@ -4,10 +4,10 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class comparePricePage extends Page {
+export class ComparePricePage extends Page {
 
     public get btnBuyAgain () {
-        return $('//*[@id="nav-xshop"]/a[3]');
+        return $('//*[@id="nav-xshop"]/a[2]');
     }
 
     public get btnBuyProductOne(){
@@ -28,13 +28,14 @@ class comparePricePage extends Page {
     public get txtGetPriceTwo(){
         return $('(//span[@class="_YnV5L_singlePriceToPay_1QbWS"])[2]')
     }
-    public async addShoppingCart () {
-        //await this.btnBuyAgain.click();
-        await this.btnBuyProductTwo.click();
-        await this.btnBuyProductOne.click();
-        await this.btnGoToCart.click();
-        await browser.pause(2000);
-    }
 
+    public get txtGetCartPriceOne(){
+        return $("(//p[@class='a-spacing-mini'])[1]");
+    }
+    public get txtGetCartPriceTwo(){
+        return $("(//p[@class='a-spacing-mini'])[2]");
+    }
+    
+    
 }
-export default new comparePricePage();
+export default new ComparePricePage();

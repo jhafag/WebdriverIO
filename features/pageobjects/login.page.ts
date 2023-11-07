@@ -4,7 +4,7 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+export class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -38,13 +38,7 @@ class LoginPage extends Page {
 
   
 
-    public async login (email: string, password: string) {
-        await this.inputEmail.setValue(email);
-        await this.btnContinue.click();
-        await browser.pause(2000);
-        await this.inputPassword.setValue(password);
-        await this.btnSingIn.click();
-    }
+   
 
     /**
      * overwrite specific options to adapt it to page object
