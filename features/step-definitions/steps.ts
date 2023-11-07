@@ -2,8 +2,7 @@ import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $, browser } from '@wdio/globals'
 
 import LoginPage from '../pageobjects/login.page';
-
-
+import LoginTask from '../tasks/loginTask';
 import registerPage from '../pageobjects/register.page';
 
 const pages = {
@@ -32,7 +31,7 @@ Given(/^I am on the login page$/, async () => {
 });
 
 When(/^I login with (.*), (.*)$/, async (useremail, password) => {
-    await LoginPage.login(useremail, password);
+    await LoginTask.login(useremail, password);
     await browser.pause(2000);
  });
 

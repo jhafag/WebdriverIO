@@ -41,5 +41,4 @@ export class ComparePriceTask extends ComparePricePage {
 
     }
 }
-
 export default new ComparePriceTask();
